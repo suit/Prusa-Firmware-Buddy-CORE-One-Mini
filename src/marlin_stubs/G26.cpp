@@ -101,11 +101,15 @@ constexpr float snake1[] = {
     10,
 };
 
-#if PRINTER_IS_PRUSA_MINI()
+//#if PRINTER_IS_PRUSA_MINI()
+//constexpr float y_step = 20;
+//#else
+//constexpr float y_step = 30;
+//#endif
+// we override this to 20 here, since it is only for the CORE One Mini
 constexpr float y_step = 20;
-#else
-constexpr float y_step = 30;
-#endif
+
+
 constexpr float x_min = 10;
 constexpr float x_max = X_BED_SIZE - 10;
 constexpr float y_min = 30;

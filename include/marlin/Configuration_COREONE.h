@@ -1065,20 +1065,20 @@
 // CORE One Mini Motion limits
 // tested travel limits are X 184, Y 191 and Z 207 mm
 // X is just -70 mm for the shortened profiles - so nothing changed
-// Y is a bit more complicated, since the whole gantry is shifted around, technically we would have 191 mm motion, so +180 and -11 mm - since the original C1 also accounts for 1 mm overtravel in the back, we use this aswell
-// Z difference is -70 mm for the height and -1 mm for the thinner MINI heatbed, additionally the C1 print smooth PEI sheet is much thicker than the MINI sheets, this would be the extra mm that we keep as clearance
+// Y is a bit more complicated, since the whole gantry is shifted around, technically we would have 191 mm motion, so +180 and -11 mm, the original C1 has 1 mm overtravel in the back, but we shift that forward for space reasons
+// Z difference is -70 mm for the height, for the sake of simplicty we'll set it to 205 mm (technically we would have 1 mm for the thinner MINI heatbed and a thinner build plate).
 
 // The size of the print bed
 #define X_BED_SIZE 180 // 250
 #define Y_BED_SIZE 180 // 220
-#define Z_SIZE 206 // 275
+#define Z_SIZE 205 // 275
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -2
-#define Y_MIN_POS -10 // -19
+#define Y_MIN_POS -11 // -19
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE + 2)
-#define Y_MAX_POS (Y_BED_SIZE + 1)
+#define Y_MAX_POS (Y_BED_SIZE)
 #define Y_MAX_PRINT_POS Y_MAX_POS
 #define HOMING_PREEMPTIVE_MOVE_Y 15.f
 #ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
