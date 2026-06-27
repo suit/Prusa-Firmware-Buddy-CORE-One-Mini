@@ -1062,14 +1062,20 @@
 
 // @section machine
 
+// CORE One Mini Motion limits
+// tested travel limits are X 184, Y 191 and Z 207 mm
+// X is just -70 mm for the shortened profiles - so nothing changed
+// Y is a bit more complicated, since the whole gantry is shifted around, technically we would have 191 mm motion, so +180 and -11 mm - since the original C1 also accounts for 1 mm overtravel in the back, we use this aswell
+// Z difference is -70 mm for the height and -1 mm for the thinner MINI heatbed, additionally the C1 print smooth PEI sheet is much thicker than the MINI sheets, this would be the extra mm that we keep as clearance
+
 // The size of the print bed
-#define X_BED_SIZE 250
-#define Y_BED_SIZE 220
-#define Z_SIZE 275
+#define X_BED_SIZE 180 // 250
+#define Y_BED_SIZE 180 // 220
+#define Z_SIZE 206 // 275
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -2
-#define Y_MIN_POS -19
+#define Y_MIN_POS -10 // -19
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE + 2)
 #define Y_MAX_POS (Y_BED_SIZE + 1)
@@ -1283,12 +1289,12 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-    #define Z_SAFE_HOMING_X_POINT (240) // X point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_X_POINT (170) // (240) // X point for Z homing when homing all axes (G28).
     #define Z_SAFE_HOMING_Y_POINT (10) // Y point for Z homing when homing all axes (G28).
 
     #define DETECT_PRINT_SHEET
     #if ENABLED(DETECT_PRINT_SHEET)
-        #define DETECT_PRINT_SHEET_X_POINT (245)
+        #define DETECT_PRINT_SHEET_X_POINT (175) // (245)
         #define DETECT_PRINT_SHEET_Y_POINT (0)
         #define DETECT_PRINT_SHEET_Z_POINT (-1)
         #define DETECT_PRINT_SHEET_Z_AFTER_FAILURE (100)
@@ -1337,9 +1343,9 @@
 
 #if ENABLED(SKEW_CORRECTION)
     // Input all length measurements here:
-    #define XY_DIAG_AC 282.8427124746
-    #define XY_DIAG_BD 282.8427124746
-    #define XY_SIDE_AD 200
+    #define XY_DIAG_AC 226.274 // 282.8427124746
+    #define XY_DIAG_BD 226.274 // 282.8427124746
+    #define XY_SIDE_AD 160 // 200
 
     // Or, set the default skew factors directly here
     // to override the above measurements:
@@ -1347,11 +1353,11 @@
 
     //#define SKEW_CORRECTION_FOR_Z
     #if ENABLED(SKEW_CORRECTION_FOR_Z)
-        #define XZ_DIAG_AC 282.8427124746
-        #define XZ_DIAG_BD 282.8427124746
-        #define YZ_DIAG_AC 282.8427124746
-        #define YZ_DIAG_BD 282.8427124746
-        #define YZ_SIDE_AD 200
+        #define XZ_DIAG_AC 226.274 // 282.8427124746
+        #define XZ_DIAG_BD 226.274 // 282.8427124746
+        #define YZ_DIAG_AC 226.274 // 282.8427124746
+        #define YZ_DIAG_BD 226.274 // 282.8427124746
+        #define YZ_SIDE_AD 160 // 200
         #define XZ_SKEW_FACTOR 0.0
         #define YZ_SKEW_FACTOR 0.0
     #endif
@@ -1430,7 +1436,7 @@
     #define X_NOZZLE_PARK_POINT (X_MAX_POS - 10.0f)
     #define Y_NOZZLE_PARK_POINT (Y_MIN_POS + 10.0f)
     #define Z_NOZZLE_PARK_POINT (20.0f)
-    #define Z_NOZZLE_PARK_POINT_MIN 168.0f // Always raise the nozzle by this amount when parking on print end
+    #define Z_NOZZLE_PARK_POINT_MIN 98.0f // 168.0f // Always raise the nozzle by this amount when parking on print end
     #define Z_NOZZLE_PARK_RISE 20.0f // Relative Z rise
 
     #define XYZ_NOZZLE_PARK_POINT \

@@ -491,7 +491,7 @@
 
     // The true location and dimension the cube/bolt/washer on the bed.
     #define CALIBRATION_OBJECT_CENTER \
-        { 264.0, -22.0, -2.0 } // mm
+        { 194.0, -22.0, -2.0 } // { 264.0, -22.0, -2.0 } // mm
     #define CALIBRATION_OBJECT_DIMENSIONS \
         { 10.0, 10.0, 10.0 } // mm
 
